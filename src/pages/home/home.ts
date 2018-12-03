@@ -14,6 +14,7 @@ import 'rxjs/add/operator/debounceTime';
 export class HomePage {
 
   // ionic cordova resources --icon
+  // https://www.joshmorony.com/high-performance-list-filtering-in-ionic-2/
   public searchopen = false;
   searchTerm: string = '';
   items: any;
