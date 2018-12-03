@@ -3,7 +3,7 @@
     <ion-title *ngIf="!searchopen">
       Agenda
     </ion-title>
-    <ion-searchbar placeholder="Pesquisar" *ngIf="searchopen" [showCancelButton]="true" cancelButtonText="Cancelar" (ionCancel)="searchopen=false" [(ngModel)]="searchTerm" [formControl]="searchControl"></ion-searchbar>
+    <ion-searchbar placeholder="Pesquisar" *ngIf="searchopen" [showCancelButton]="true" cancelButtonText="Cancelar" (ionCancel)="searchopen=false" [(ngModel)]="searchTerm" [formControl]="searchControl" (ionInput)="onSearchInput()"></ion-searchbar>
   <ion-buttons end>
     <button ion-button icon-only *ngIf="!searchopen" (click) = "searchopen=true">
       <ion-icon name="search"></ion-icon>
@@ -16,7 +16,7 @@
   
   <div *ngIf="searching" class="spinner-container">
     <ion-spinner></ion-spinner>
-  </div>
+</div>
 
     <ion-list>
         <ion-item *ngFor="let item of items">
@@ -27,3 +27,4 @@
     <button ion-button round full color="primary" (click)="Cadastrar()">Cadastrar-se</button>
 
 </ion-content>
+
