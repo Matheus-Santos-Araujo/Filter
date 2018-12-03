@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Cadastro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="loadForm">
+   <ion-item>
+        <ion-label color="primary" stacked>Email</ion-label>
+        <ion-input type="text" formControlName="nome" placeholder="Insira seu nome"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="loadForm.get('nome').hasError('required') && loadForm.get('nome').touched">
+        <p style="color: #ff0000;">*Nome é obrigatório</p>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label color="primary" stacked>Email</ion-label>
+        <ion-input  formControlName="email" type="text" placeholder="Insira seu email"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="loadForm.get('email').hasError('minlength') && loadForm.get('email').touched">
+          <p style="color: #ff0000;">*Email tem no mínimo 10 caracteres</p> 
+        </ion-item>
+
+      <ion-item>
+        <ion-label color="primary" stacked>Telefone</ion-label>
+        <ion-input  formControlName="telefone" type="text" placeholder="Insira seu telefone"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="loadForm.get('telefone').hasError('minlength') && loadForm.get('telefone').touched">
+          <p style="color: #ff0000;">*Email tem no mínimo 8 caracteres</p> 
+        </ion-item>
+
+      <br>
+      <button [disabled]="!loadForm.valid" type="submit" ion-button round full color="primary">Enviar Cadastro</button>
+    </form> 
+</ion-content>

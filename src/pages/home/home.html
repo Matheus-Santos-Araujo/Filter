@@ -1,14 +1,29 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
+  <ion-navbar color="primary">
+    <ion-title *ngIf="!searchopen">
+      Agenda
     </ion-title>
+    <ion-searchbar placeholder="Pesquisar" *ngIf="searchopen" [showCancelButton]="true" cancelButtonText="Cancelar" (ionCancel)="searchopen=false" [(ngModel)]="searchTerm" [formControl]="searchControl"></ion-searchbar>
+  <ion-buttons end>
+    <button ion-button icon-only *ngIf="!searchopen" (click) = "searchopen=true">
+      <ion-icon name="search"></ion-icon>
+    </button>
+  </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+
+    <ion-list>
+        <ion-item *ngFor="let item of items">
+            {{item.title}}
+        </ion-item>
+    </ion-list>
+
+    <button ion-button round full color="primary" (click)="Cadastrar()">Cadastrar-se</button>
+
 </ion-content>
