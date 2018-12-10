@@ -13,6 +13,7 @@ import 'rxjs/add/operator/debounceTime';
 })
 export class HomePage {
 
+  // exemplo de comentario
   // ionic cordova resources --icon
   // https://www.joshmorony.com/high-performance-list-filtering-in-ionic-2/
   public searchopen = false;
